@@ -60,14 +60,14 @@ $hotels = [
 
 
         <section>
-            <div class="container">
+            <div class="container py-5">
                 <h1>Php's Hotel</h1>
             </div>
         </section>
 
-        <section>
-            <div>
 
+        <section>
+            <div class="container">
 
                 <table class="table">
                     <thead>
@@ -79,22 +79,19 @@ $hotels = [
                             <th scope="col">Distanza dal centro</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <?php foreach ($hotels as $hotel) { ?>
                             <tr>
                                 <th scope="row"><?php echo $hotel['name'] ?></th>
                                 <td><?php echo $hotel['description'] ?></td>
-                                <td><?php if ($hotel['parking'] === false) {
-                                        echo 0;
-                                    } else {
-                                        echo $hotel['parking'];
-                                    }
-                                    ?></td>
+                                <td><?php echo ($hotel['parking'] === false) ? 0 :  $hotel['parking'] ?></td>
                                 <td><?php echo $hotel['vote'] ?></td>
                                 <td><?php echo $hotel['distance_to_center'] ?> km</td>
                             </tr>
                         <?php } ?>
                     </tbody>
+
                 </table>
 
             </div>
