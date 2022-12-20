@@ -40,13 +40,6 @@ $hotels = [
 
 ];
 
-foreach ($hotel as $hotels) {
-
-    var_dump($hotel); 
-
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +67,35 @@ foreach ($hotel as $hotels) {
 
         <section>
             <div>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome Hotel</th>
+                            <th scope="col">Descrizione</th>
+                            <th scope="col">Parcheggi</th>
+                            <th scope="col">Voto</th>
+                            <th scope="col">Distanza dal centro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($hotels as $hotel) { ?>
+                            <tr>
+                                <th scope="row"><?php echo $hotel['name'] ?></th>
+                                <td><?php echo $hotel['description'] ?></td>
+                                <td><?php if ($hotel['parking'] === false) {
+                                        echo 0;
+                                    } else {
+                                        echo $hotel['parking'];
+                                    }
+                                    ?></td>
+                                <td><?php echo $hotel['vote'] ?></td>
+                                <td><?php echo $hotel['distance_to_center'] ?> km</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
 
             </div>
         </section>
